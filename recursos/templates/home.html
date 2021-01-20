@@ -10,18 +10,16 @@
         <p>Histórico do registro de equipamentos e recursos</p></a>
       </li>
         
-      <li><a href="/" target="_blank">
+      <li><a href="{% url 'list' %}" target="_blank">
         <img src="{% static 'images/graph.png' %}" />
         <h3>Gráficos</h3>
         <p>Evolução do consumo de memória e cpu dos equipamentos</p></a>
       </li>
   
-      <li><a href="/registros/?format=json" target="_blank">
+      <li><a href="/api/registros/?format=json" target="_blank">
         <img src="{% static 'images/api.png' %}" />
         <h3>API</h3>
-        <p>Mostra informações da API de comunicação</p></a>
-      </li>
-  
-  
+        <p>Mostra informações da API de comunicação (formato JSON)</p></a>
+      </li>    
     </ul>
   </div>

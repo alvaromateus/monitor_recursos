@@ -25,8 +25,9 @@ route.register(r'registros', registrosviewsets.RegistroViewSet,basename='Registr
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(route.urls)),
-    path('home/', views.home, name='home'),
+    
+    path('api/', include(route.urls), name='api'),
+    path('', views.home, name='home'),
     path('graph/<str:equipamento>/', views.graph, name='graph'),
     
     path('updateGraph/', views.updateGraph, name='updateGraph'),

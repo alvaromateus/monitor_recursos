@@ -16,10 +16,9 @@ def list(request):
     }
     return render(request, 'list.html', context_object_name)
 
-def graph(request, equipamento):
-    
+def graph(request, equipamento):    
     queryset = Registro.objects.filter(nome_equipamento=equipamento)
-    
+
     names = [obj.nome_equipamento for obj in queryset]
     dates = [obj.data_hora for obj in queryset]
     mems = [obj.memoria for obj in queryset]

@@ -12,7 +12,7 @@ try:
 
         data_e_hora_atuais = datetime.now()
         data_e_hora_em_texto = data_e_hora_atuais.strftime('%m/%d/%Y %H:%M:%S')
-        arquivo.write('"'+str(data_e_hora_em_texto)+'.743",')
+        arquivo.write('"'+str(data_e_hora_em_texto)+'",')
 
         memory_usage = dict(psutil.virtual_memory()._asdict())
         arquivo.write('"'+str(memory_usage['percent'])+'",')
