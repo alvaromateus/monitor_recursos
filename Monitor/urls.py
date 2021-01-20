@@ -18,11 +18,17 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from recursos.api import viewsets as registrosviewsets
+from recursos import views
 
 route = routers.DefaultRouter()
 route.register(r'registros', registrosviewsets.RegistroViewSet,basename='Registros') 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(route.urls))
+    path('', include(route.urls)),
+    path('home/', views.home, name='home'),
+    path('graph/<str:equipamento>/', views.graph, name='graph'),
+    
+    path('updateGraph/', views.updateGraph, name='updateGraph'),
+    path('list/', views.list, name='list')
 ]

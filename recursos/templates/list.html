@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+<div>
+    <h1>Listagem de equipamentos</h1><br>
+    
+    <ul>
+        {% for e in equipamentos %}
+            <li>
+            <h3><a href="{% url 'graph' equipamento=e %}">
+                {{ e }}</a></h3>
+            </li>
+        {% endfor %}
+    </ul>
+  </div>
