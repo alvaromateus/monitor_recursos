@@ -35,4 +35,4 @@ while(True):
         print('Status Code', response.status_code)
         print('Reason', response.reason)
         print('Texto', response.text)
-    time.sleep(390)
+    time.sleep(1170)

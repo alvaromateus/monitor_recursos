@@ -17,8 +17,11 @@ def list(request):
     return render(request, 'list.html', context_object_name)
 
 def graph(request, equipamento):    
-    queryset = Registro.objects.filter(nome_equipamento=equipamento)
-
+    queryset = Registro.objects.filter(nome_equipamento=equipamento)    
+    primeiro = queryset.count()-100
+    ultimo = queryset.count()
+    if ultimo >= 100:
+        queryset = Registro.objects.filter(nome_equipamento=equipamento)[primeiro:ultimo]
     names = [obj.nome_equipamento for obj in queryset]
     dates = [obj.data_hora for obj in queryset]
     mems = [obj.memoria for obj in queryset]
@@ -32,18 +35,3 @@ def graph(request, equipamento):
         'cpus': json.dumps(cpus),
     }
     return render(request, 'graph.html', context)
-
-def updateGraph(request):
-    queryset = Registro.objects.all()
-    names = [obj.nome_equipamento for obj in queryset]
-    dates = [obj.data_hora for obj in queryset]
-    mems = [obj.memoria for obj in queryset]
-    cpus = [obj.cpu for obj in queryset]
-
-    context = {
-        'names': names,
-        'dates': dates,
-        'mems': mems,
-        'cpus': cpus,
-    }
-    return JsonResponse(context)

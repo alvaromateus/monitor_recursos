@@ -24,12 +24,9 @@ route = routers.DefaultRouter()
 route.register(r'registros', registrosviewsets.RegistroViewSet,basename='Registros') 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    
+    path('admin/', admin.site.urls),    
     path('api/', include(route.urls), name='api'),
     path('', views.home, name='home'),
-    path('graph/<str:equipamento>/', views.graph, name='graph'),
-    
-    path('updateGraph/', views.updateGraph, name='updateGraph'),
+    path('graph/<str:equipamento>/', views.graph, name='graph'),    
     path('list/', views.list, name='list')
 ]
