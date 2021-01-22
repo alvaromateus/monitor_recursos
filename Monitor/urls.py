@@ -28,5 +28,5 @@ urlpatterns = [
     path('api/', include(route.urls), name='api'),
     path('', views.home, name='home'),
     path('graph/<str:equipamento>/', views.graph, name='graph'),    
-    path('list/', views.list, name='list')
+    path('lista_equipamentos/', views.lista_equipamentos, name='lista_equipamentos')
 ]

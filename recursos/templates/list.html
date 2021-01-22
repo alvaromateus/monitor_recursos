@@ -1,14 +1,14 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 <div>
-    <h1>Listagem de equipamentos</h1><br>
+    <h1>Listagem de equipamentos</h1><br> * Organizado da melhor para a pior disponibilidade
     
     <ul>
-        {% for e in equipamentos %}
+        {% for i in equipamentos %}
             <li>
-            <h3><a href="{% url 'graph' equipamento=e %}">
-                {{ e }}</a></h3>
-            </li>
+            <h3><a href="{% url 'graph' equipamento=i.nome_equipamento %}">
+                Nome do equipamento: {{ i.nome_equipamento }} <br> Média comportamental: {{ i.comportamento }} </a></h3>
+            </a></li>
         {% endfor %}
     </ul>
   </div>

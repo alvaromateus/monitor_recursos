@@ -7,13 +7,14 @@
       <li><a href="/admin/recursos/registro/" target="_blank">
         <img src="{% static 'images/list.png' %}" />
         <h3>Equipamentos e recursos</h3>
-        <p>Histórico do registro de equipamentos e recursos</p></a>
+        <p>Histórico do registro de equipamentos e recursos.</p></a>
       </li>
         
-      <li><a href="{% url 'list' %}" target="_blank">
+      <li><a href="{% url 'lista_equipamentos' %}" target="_blank">
         <img src="{% static 'images/graph.png' %}" />
         <h3>Gráficos</h3>
-        <p>Evolução do consumo de memória e cpu dos equipamentos</p></a>
+        <p>Evolução do consumo de memória e cpu dos equipamentos.</p>
+        <p>Também é possível verificar o comportamento médio de todos os equipamentos.</p></a>
       </li>
   
       <li><a href="/api/registros/?format=json" target="_blank">
