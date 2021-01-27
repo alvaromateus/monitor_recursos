@@ -9,11 +9,6 @@ def home(request):
     return render(request, 'home.html')
 
 def comportamento(equipamento):
-    # memória_disponível = memória_total-((percentual_memoria_ocupada/100) * memoria_total)
-    # clock_processador = numero_nucleos * clock_processador
-    # clock_disponível = clock_processador - ((percentual_cpu_ocupada/100) * clock_processador)
-    # comportamento = normalizar(memoria_disponível + clock_disponível)
-
     # cálcula média de consumo de cpu e memória
     media_memoria = 0
     media_cpu = 0    
@@ -52,11 +47,11 @@ def lista_equipamentos(request):
     return render(request, 'list.html', context_object_name)
 
 def graph(request, equipamento):    
-    queryset = Registro.objects.filter(nome_equipamento=equipamento)    
+    queryset = Registro.objects.filter(nome_equipamento=equipamento).order_by('id')
     primeiro = queryset.count()-100
     ultimo = queryset.count()
     if ultimo >= 100:
-        queryset = Registro.objects.filter(nome_equipamento=equipamento)[primeiro:ultimo]
+        queryset = Registro.objects.filter(nome_equipamento=equipamento).order_by('id')[primeiro:ultimo]
     names = [obj.nome_equipamento for obj in queryset]
     dates = [obj.data_hora for obj in queryset]
     mems = [obj.memoria for obj in queryset]
