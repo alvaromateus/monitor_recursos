@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import json
+with open('config.json', 'r') as f:
+    config = json.load(f)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c#(4a)&b*ny-@s@3%z)l@$9=9@5oghd)@@a&j&96n+ub7h3+qp'
+SECRET_KEY = config['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,11 +80,11 @@ WSGI_APPLICATION = 'Monitor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'monitor',
-        'USER': 'postgres',
-        'PASSWORD': 'defensoriapr',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config['db_name'],
+        'USER': config['db_user'],
+        'PASSWORD': config['db_pass'],
+        'HOST': config['db_host'],
+        'PORT': config['db_port'],
     }
 }
 

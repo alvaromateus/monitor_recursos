@@ -7,7 +7,7 @@
         {% for i in equipamentos %}
             <li>
             <h3><a href="{% url 'graph' equipamento=i.nome_equipamento %}">
-                Nome do equipamento: {{ i.nome_equipamento }} <br> Média comportamental: {{ i.comportamento }} </a></h3>
+                Nome do equipamento: {{ i.nome_equipamento }} <br> Valor que representa os recursos disponíveis (cpu e memória): {{ i.comportamento }} </a></h3>
             </a></li>
         {% endfor %}
     </ul>

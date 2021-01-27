@@ -1,3 +1,0 @@
-1) Monitor captura informações de cpu e computador e grava em um arquivo chamado log.csv (monitor.py)
-2) Transmissor faz o cálculo da média exponencial utilizando o arquivo log.csv e envia em determinado período (39?) informações para API (transmissor.py)
-3) Gerenciador mostra informações dos dados capturados além de gráficos

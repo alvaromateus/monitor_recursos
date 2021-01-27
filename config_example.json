@@ -1,0 +1,9 @@
+{
+    "url_server": "http://192.168.1.31:8000",
+    "db_name": "monitor",
+    "db_user": "postgres",
+    "db_pass": "senha_banco",
+    "db_host": "localhost",
+    "db_port": "5432",
+    "secret_key": "c#(4a)&b*ny-@s@3%z)l@$9=9@5oghd)@@a&j&96n+ub7h3+qp"
+}
