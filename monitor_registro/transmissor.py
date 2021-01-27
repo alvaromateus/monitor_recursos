@@ -4,7 +4,8 @@ import time
 import requests
 import json
 import socket
-from threading import Thread
+import psutil
+from cpufreq import cpuFreq
 
 def search(dictionary_list, name_equipment):
     res = None
@@ -42,14 +43,14 @@ while(True):
         }
         print("incluindo computador já existente")
         response = requests.post(url="http://192.168.1.31:8000/api/registros/", json=registro)
-    else: # Se for um computador novo
+    else: # Se for um computador novo                
         registro = {
             'nome_equipamento': socket.gethostname(),
             'data_hora': data_e_hora_em_texto,
             'memoria': media_memoria.tail(1)[0],
             'cpu': media_cpu.tail(1)[0],
-            'memoria_total': '8GB',
-            'clock_processador': 'quad core 3.2ghz'            
+            'memoria_total': psutil.virtual_memory()[0],
+            'clock_processador': cpuFreq().get_frequencies()
         }
         print("incluindo computador novo computador")
         response = requests.post(url="http://192.168.1.31:8000/api/registros/", json=registro)
