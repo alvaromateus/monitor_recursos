@@ -8,8 +8,10 @@ class Registro(models.Model):
     data_hora = models.CharField(max_length=255)
     memoria = models.FloatField()
     cpu = models.FloatField()
+    
     memoria_total = models.CharField(max_length=50, null=True)
     clock_processador = models.CharField(max_length=255, null=True)
+    numero_nucleos = models.CharField(max_length=2, null=True)
     # nome_equipamento_X = 'asas'
 
     def __str__(self):

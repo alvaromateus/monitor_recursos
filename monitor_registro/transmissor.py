@@ -5,7 +5,6 @@ import requests
 import json
 import socket
 import psutil
-from cpufreq import cpuFreq
 
 def search(dictionary_list, name_equipment):
     res = None
@@ -49,8 +48,10 @@ while(True):
             'data_hora': data_e_hora_em_texto,
             'memoria': media_memoria.tail(1)[0],
             'cpu': media_cpu.tail(1)[0],
+
             'memoria_total': psutil.virtual_memory()[0],
-            'clock_processador': cpuFreq().get_frequencies()
+            'clock_processador': psutil.cpu_freq()[2],
+            'numero_nucleos': psutil.cpu_count()
         }
         print("incluindo computador novo computador")
         response = requests.post(url="http://192.168.1.31:8000/api/registros/", json=registro)
