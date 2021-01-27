@@ -9,9 +9,10 @@
 Estes módulos fazem o monitoramento e transmissão para o servidor. Antes de rodar o transmissor é necessário ter rodado o monitor durante algum tempo, para que existam dados suficientes para análise (20 minutos são suficientes). Para executar estes dois módulos é preciso instalar as  dependências com o comando abaixo dentro da pasta raiz:
 - pip install -r requeriments.txt
 
-2) Um servidor web que recebe as informações de todos os equipamentos monitorados, sendo que os arquivos ficam na pasta raiz. O projeto foi desenvolvido utilizando o framework Django. Para instalação é preciso seguir os passos abaixo:
+2) Um servidor web que recebe as informações de todos os equipamentos monitorados, sendo que os arquivos ficam na pasta raiz. O projeto foi desenvolvido utilizando o framework Django com banco de dados Postgresql. Para instalação é preciso seguir os passos abaixo:
 
 - Instalar as dependências com o comando pip install -r requeriments.txt
+- Instalar o servidor de banco de dados Postgresql
 - Abrir o arquivo config_example.json e alterar as variáveis conforme seu ambiente, ao final o arquivo deve ser renomeado para config.json
 - Após isso basta executar o comando python manage.py runserver ip_local:porta (O mesmo do arquivo config.json no parâmetro url_server)
 - Ao final é possível acessar no navegador de internet a url do servidor onde será possível verificar as opções disponíveis
